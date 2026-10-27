@@ -7,23 +7,23 @@
   <meta name="description" content="آشنایی با فولاد زنگ‌نزن، ترکیب، ویژگی‌ها، کاربردها و روش نگهداری آن">
   <style>
     :root{
-      --ink:#17212b;
-      --muted:#60707d;
+      --ink:#20272c;
+      --muted:#68777f;
       --steel:#526779;
-      --steel-dark:#273846;
-      --mist:#edf3f5;
-      --teal:#5F3908;
-      --teal-light:#f1e8dc;
+      --steel-dark:#273b45;
+      --mist:#edf5f6;
+      --teal:#168a9b;
+      --teal-light:#dff1f2;
       --orange:#5F3908;
       --white:#ffffff;
-      --line:#dfe8ec;
+      --line:#dce6e8;
       --shadow:0 18px 45px rgba(28,52,68,.12);
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       color:var(--ink);
-      background:#f8fbfc;
+      background:#f7fafb;
       font-family:Tahoma,"Segoe UI",sans-serif;
       line-height:1.85;
     }
@@ -31,8 +31,9 @@
     .wrap{width:min(1120px,calc(100% - 40px));margin:auto}
     header{
       background:
-        radial-gradient(circle at 15% 15%, rgba(255,255,255,.22) 0 3px, transparent 4px 100px),
-        linear-gradient(135deg,#202326 0%,#3a3937 58%,#5F3908 100%);
+        radial-gradient(circle at 15% 15%, rgba(255,255,255,.18) 0 3px, transparent 4px 100px),
+        linear-gradient(120deg,rgba(21,31,36,.66),rgba(41,61,67,.58)),
+        url("assets/water-texture.jpeg") center 45% / cover;
       color:#fff;
       overflow:hidden;
     }
@@ -43,8 +44,8 @@
     .navlinks a:hover{color:#fff}
     .hero{display:grid;grid-template-columns:1.08fr .92fr;gap:50px;align-items:center;padding:52px 0 76px}
     .eyebrow{color:#b8f2e6;font-size:14px;font-weight:bold;margin-bottom:14px}
-    h1{font-size:clamp(34px,5vw,62px);line-height:1.2;margin:0 0 19px;letter-spacing:-1.5px}
-    .hero p{font-size:18px;max-width:620px;color:#e7eef1;margin:0 0 28px}
+    h1{display:block;width:fit-content;max-width:100%;font-size:clamp(30px,4.2vw,52px);line-height:1.2;margin:0 auto 19px;padding:10px 16px;border-radius:8px;color:#fff;background:rgba(20,30,35,.58);border:1px solid rgba(255,255,255,.2);text-align:center;letter-spacing:-1.5px;text-shadow:0 2px 8px rgba(0,0,0,.35);backdrop-filter:blur(3px)}
+    .hero p{font-size:18px;max-width:620px;color:#fff;margin:0 0 28px}
     .actions{display:flex;gap:12px;flex-wrap:wrap}
     .btn{padding:12px 19px;border-radius:12px;font-weight:bold;border:1px solid transparent;display:inline-flex;align-items:center;gap:7px}
     .btn-primary{background:#5F3908;color:#fff;box-shadow:0 7px 20px rgba(0,0,0,.14)}
@@ -56,14 +57,16 @@
     .orb:after{width:25px;height:13px;left:60px;bottom:68px;transform:rotate(28deg)}
     .badge{position:absolute;bottom:18px;right:4%;background:#fff;color:var(--ink);padding:13px 16px;border-radius:15px;box-shadow:var(--shadow);font-size:13px}
     .badge strong{display:block;font-size:23px;color:var(--teal);line-height:1.2}
-    main{padding:64px 0}
-    .section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:24px}
+    .header-divider{--divider-height:clamp(12px,1.5vw,28px);position:relative;z-index:2;height:var(--divider-height);margin-bottom:clamp(-28px,-1.5vw,-12px);background:transparent;overflow:hidden;line-height:0;pointer-events:none}
+    .header-divider img{position:absolute;left:50%;top:50%;display:block;width:max(72vw,420px);height:max(72vw,420px);max-width:none;object-fit:fill;transform:translate(-50%,-50%) rotate(-45deg);filter:drop-shadow(0 1px 2px rgba(32,39,44,.24))}
+    main{padding:64px 0;color:#fff;background:url("assets/stainless-background.jpg") center center / cover no-repeat;}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:24px;padding:18px 22px;border-radius:8px;background:rgba(26,38,43,.76)}
     h2{font-size:30px;margin:0;line-height:1.3}
-    .lead{color:var(--muted);margin:8px 0 0;max-width:670px}
+    .lead{color:#e1eaed;margin:8px 0 0;max-width:670px}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 7px 24px rgba(30,62,75,.05)}
     .icon{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:var(--teal-light);color:var(--teal);font-size:22px;margin-bottom:15px}
-    .card h3{margin:0 0 8px;font-size:19px}
+    .card h3{margin:0 0 8px;font-size:19px;color:var(--ink)}
     .card p{color:var(--muted);margin:0;font-size:14px}
     .facts{margin-top:58px;background:var(--steel-dark);border-radius:25px;color:#fff;padding:30px;display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center}
     .facts h2{font-size:27px}
@@ -73,10 +76,12 @@
     .stat strong{display:block;color:#ffd087;font-size:25px;line-height:1.1;margin-bottom:4px}
     .stat span{font-size:13px;color:#d6e2e6}
     .uses{margin-top:58px;display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;align-items:start}
+    .uses>div:first-child{padding:18px 22px;border-radius:8px;background:rgba(26,38,43,.76)}
     .use-list{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
-    .use{background:var(--mist);padding:16px;border-radius:15px;display:flex;gap:11px;align-items:center;font-weight:bold}
+    .use{background:var(--mist);padding:16px;border-radius:15px;display:flex;gap:11px;align-items:center;font-weight:bold;color:var(--ink)}
     .use i{font-style:normal;font-size:22px}
-    .care{margin-top:58px;background:linear-gradient(120deg,#f7f3ed,#fffaf3);border:1px solid #e8ded0;border-radius:23px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:30px}
+    .care{margin-top:58px;background:linear-gradient(120deg,#eaf5f5,#f9fbf9);border:1px solid #d6e9e8;border-radius:23px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:30px;color:var(--ink)}
+    .care .lead{color:var(--muted)}
     .care ul{margin:0;padding-right:20px;color:var(--muted)}
     .care li{margin:8px 0}
     footer{background:#172832;color:#c7d7dc;padding:25px 0;font-size:13px}
@@ -117,7 +122,9 @@
     </div>
   </header>
 
-  <main class="wrap">
+  <div class="header-divider" aria-hidden="true"><img src="assets/image1.png" alt=""></div>
+
+  <main><div class="wrap">
     <section id="about">
       <div class="section-head">
         <div>
@@ -172,12 +179,33 @@
         <li>لکه‌های نمک و آب را زود پاک کنید، به‌ویژه در مناطق ساحلی.</li>
       </ul>
     </section>
-  </main>
+  </div></main>
 
   <footer>
     <div class="wrap"><span>علی اکاتی دلیر</span><span>© ۱۴۰۵</span></div>
   </footer>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
